@@ -6,7 +6,7 @@ contract Users {
     // data structure that stores a user
     struct User {
         string name;
-        bytes32 status;
+        string status;
         address walletAddress;
         uint createdAt;
         uint updatedAt;
@@ -58,7 +58,7 @@ contract Users {
      * @param _userName 		The displaying name
      * @param _status        The status of the user
      */
-    function registerUser(string memory _userName, bytes32 _status) public
+    function registerUser(string memory _userName, string memory _status) public
     returns(uint)
     {
     	return addUser(msg.sender, _userName, _status);
@@ -74,7 +74,7 @@ contract Users {
      * @param _userName		Displaying name of the user
      * @param _status    	Status of the user
      */
-    function addUser(address _wAddr, string memory  _userName, bytes32 _status) private
+    function addUser(address _wAddr, string memory  _userName, string memory _status) private
     returns(uint)
     {
         // checking if the user is already registered
@@ -109,7 +109,7 @@ contract Users {
      * @param _newUserName	The new user's displaying name
      * @param _newStatus 	The new user's status
      */
-    function updateUser(string memory _newUserName, bytes32 _newStatus) checkSenderIsRegistered public
+    function updateUser(string memory _newUserName, string memory _newStatus) checkSenderIsRegistered public
     returns(uint)
     {
     	// An user can modify only his own profile.
@@ -137,7 +137,7 @@ contract Users {
     returns(
     	uint,
     	string memory,
-    	bytes32,
+    	string memory,
     	address,
     	uint,
     	uint
@@ -166,7 +166,7 @@ contract Users {
     returns(
     	uint,
     	string memory,
-    	bytes32,
+    	string memory,
     	address,
     	uint,
     	uint
